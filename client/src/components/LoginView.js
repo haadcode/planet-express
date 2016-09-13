@@ -34,18 +34,16 @@ class LoginView extends React.Component{
   }
 
   componentDidMount() {
-    // window.addEventListener('resize', this.onResize.bind(this));
-
     if(this.refs.username) this.refs.username.focus();
 
     this.unsubscribeFromNetworkStore = NetworkStore.listen(this.onNetworkUpdated.bind(this));
 
-    NetworkActions.registerError.listen((err) => {
-      if(err.toString().replace(/\"/g, "") === "Invalid username or password")
-        this.setState({ error: err.toString().replace(/\"/g, ""), connecting: false, displayPasswordField: true });
-      else
-      this.setState({ error: err.toString().replace(/\"/g, ""), connecting: false });
-    });
+    // NetworkActions.registerError.listen((err) => {
+    //   if(err.toString().replace(/\"/g, "") === "Invalid username or password")
+    //     this.setState({ error: err.toString().replace(/\"/g, ""), connecting: false, displayPasswordField: true });
+    //   else
+    //   this.setState({ error: err.toString().replace(/\"/g, ""), connecting: false });
+    // });
   }
 
   onNetworkUpdated(network) {
@@ -57,18 +55,12 @@ class LoginView extends React.Component{
   }
 
   componentWillUnmount() {
-    // window.removeEventListener('resize', this.onResize.bind(this));
     this.unsubscribeFromNetworkStore();
   }
 
   componentDidUpdate() {
     if(this.refs.password) this.refs.password.focus();
   }
-
-  // onResize() {
-  //   var size = Math.min(window.innerWidth, maxLogoSize);
-  //   this.setState({ logoSize: size });
-  // }
 
   register(e) {
     if(e) e.preventDefault();
@@ -78,7 +70,7 @@ class LoginView extends React.Component{
 
     if(network !== '' && username !== '') {
       this.setState({ error: null, connecting: true, username: username, password: password });
-      NetworkActions.connect(network, username);
+      NetworkActions.connect(username);
     }
 
     return;
@@ -91,7 +83,7 @@ class LoginView extends React.Component{
 
   onUportLogin() {
     const network = this.refs.network.value.trim()
-    NetworkActions.connect(network, { provider: 'uPort' })
+    NetworkActions.connect({ provider: 'uPort' })
   }
 
   render() {

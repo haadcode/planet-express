@@ -130,12 +130,6 @@ class PinnedMessage extends React.Component {
     return <div className="Content">{content}</div>;
   }
 
-  renderVerification() {
-    return this.state.post && this.state.post.signKey
-      ? <span className="Verified flaticon-linked1"/>
-      : null
-  }
-
   renderReplies() {
     // render message from latest to oldest (reverse)
     const sorted = _.orderBy(this.state.replies, (e) => e.post.meta.ts, ['asc'])

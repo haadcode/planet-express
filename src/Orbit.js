@@ -68,7 +68,6 @@ class Orbit {
     return IdentityProviders.authorizeUser(this._ipfs, credentials)
       .then((user) => this._user = user)
       .then(() => new OrbitDB(this._ipfs, this._user.id))
-      // .then(() => OrbitDB.connect(host, this.user.identityProvider.id, null, this._ipfs))
       .then((orbitdb) => {
         this._orbitdb = orbitdb
         this._orbitdb.events.on('data', this._handleMessage.bind(this)) // Subscribe to updates in the database
@@ -207,7 +206,6 @@ class Orbit {
           const isDirectory = result[0].path.split('/').pop() !== filename
           return {
             Hash: isDirectory ? result[result.length - 1].hash : result[0].hash,
-            // Hash: isDirectory ? result[result.length - 1].Hash : result[0].Hash,
             isDirectory: isDirectory
           }
         })
