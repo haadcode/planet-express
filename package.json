@@ -1,0 +1,52 @@
+{
+  "name": "orbit",
+  "version": "3.1.0",
+  "description": "Distributed peer-to-peer chat built on IPFS",
+  "main": "index.js",
+  "dependencies": {
+    "bs58": "^3.0.0",
+    "du": "^0.1.0",
+    "ipfs-api": "https://github.com/haadcode/js-ipfs-api.git",
+    "ipfs-post": "^0.0.12",
+    "ipfsd-ctl": "^0.14.0",
+    "lodash": "^4.14.0",
+    "logplease": "^1.2.7",
+    "orbit-crypto": "0.0.7",
+    "orbit-db": "https://github.com/haadcode/orbit-db.git#feat\/ipfs-pubsub",
+    "text-encoding": "^0.6.0",
+    "uport-lib": "git+https://github.com/haadcode/uport-lib.git",
+    "uport-persona": "git+https://github.com/haadcode/uport-persona.git",
+    "web3": "^0.17.0-alpha"
+  },
+  "devDependencies": {
+    "bluebird": "^3.4.6",
+    "electron-prebuilt": "1.3.1",
+    "grunt": "^1.0.1",
+    "grunt-chmod": "^1.1.1",
+    "grunt-contrib-clean": "^1.0.0",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-electron": "^2.0.1",
+    "http-server": "^0.9.0",
+    "ipfs": "^0.14.3",
+    "load-grunt-tasks": "^3.5.0",
+    "mocha": "^2.5.3",
+    "orbit-server": "^0.2.3"
+  },
+  "scripts": {
+    "test": "./node_modules/.bin/mocha",
+    "build": "./node_modules/.bin/grunt build",
+    "dev:electron": "ENV=dev API_ORIGIN=* IPFS_EXEC=/$GOPATH/bin/ipfs ./node_modules/.bin/electron .",
+    "electron": "./node_modules/.bin/electron .",
+    "start": "cd client/dist && ../../node_modules/.bin/http-server -c-1 -p 8081 & open http://localhost:8081/index.html & wait"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/haadcode/orbit.git"
+  },
+  "bugs": {
+    "url": "https://github.com/haadcode/orbit/issues"
+  },
+  "readme": "README.md",
+  "author": "Haad",
+  "license": "MIT"
+}

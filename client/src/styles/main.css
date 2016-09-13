@@ -1,0 +1,21 @@
+/* Serif / Sans Serif */
+@import url(https://fonts.googleapis.com/css?family=Lato:400,300,100);
+
+/* Monospace fonts */
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,200,200italic,400italic|Roboto+Mono:400,100,300);
+
+
+/* WIP */
+@import 'https://fonts.googleapis.com/css?family=Arvo|Josefin+Sans:100,300,400|Muli:300,400|PT+Sans|Poppins:300|Questrial|Raleway:100,300,400|Roboto+Condensed|Slabo+27px|Varela';
+
+
+html, body {
+  font-family: "Lato";
+  font-weight: 300;
+}
+
+h1 {
+  font-weight: 100;
+  margin: auto;
+  font-size: 2em;
+}
